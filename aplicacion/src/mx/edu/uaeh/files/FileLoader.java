@@ -7,6 +7,8 @@ package mx.edu.uaeh.files;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -16,11 +18,16 @@ public class FileLoader {
     private String ruta;
     private String nombreArchivo;
     private String rutaArchivo;
+    private String contenidoArchivo;
 
     public FileLoader(String ruta, String nombreArchivo) {
         this.ruta = ruta;
         this.nombreArchivo = nombreArchivo;
         rutaArchivo=ruta + nombreArchivo;
+    }
+
+    public void setContenidoArchivo(String contenidoArchivo) {
+        this.contenidoArchivo = contenidoArchivo;
     }
     
     
@@ -63,4 +70,38 @@ public class FileLoader {
       }
       return textoArchivo;
     }
+    public void saveText(){
+            FileWriter fw;
+            try
+            {
+                  fw= new FileWriter(rutaArchivo);
+            }
+            catch(IOException io)
+            {
+                  io.printStackTrace();
+                  return;
+            }
+ 
+            //Escribimos
+            try
+            {
+                  fw.write(contenidoArchivo);
+            }
+ 
+            catch(IOException io)
+            {
+                  io.printStackTrace();
+            }
+ 
+            //cerramos el fichero
+            try
+            {
+                  fw.close();
+            }
+ 
+            catch(IOException io)
+            {
+                  io.printStackTrace();
+            }             
+      }
 }
