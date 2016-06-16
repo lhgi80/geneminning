@@ -43,7 +43,7 @@ public class FileLoader {
          
          String linea;
          while((linea=br.readLine())!=null){
-          textoArchivo+=linea;
+          textoArchivo+=linea + "\n";
         }
          
       }
