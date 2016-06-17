@@ -4,6 +4,8 @@
  */
 package mx.edu.uaeh.files;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Luis
@@ -11,6 +13,8 @@ package mx.edu.uaeh.files;
 public class Dimero {
     private String dimero;
     private int cantidad;
+    private int[] posiciones;
+    private int[] distancias;
 
     public Dimero() {
     }
@@ -29,6 +33,24 @@ public class Dimero {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public int[] getPosiciones() {
+        return posiciones;
+    }
+
+    public void setPosiciones(int[] posiciones) {
+        this.posiciones = posiciones;
+    }
+    
+    
+    
+    public int[] getDistancias() {
+        return distancias;
+    }
+
+    public void setDistancias(int[] distancias) {
+        this.distancias = distancias;
     }
     
     

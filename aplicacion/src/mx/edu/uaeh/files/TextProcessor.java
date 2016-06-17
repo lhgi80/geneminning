@@ -14,13 +14,14 @@ public class TextProcessor {
     private String texto;
     private String textoFormateado;
     private ArrayList<String> dimeros;
-    private ArrayList<Dimero> frecuenciaDimeros;
+    private ArrayList<Dimero> listadoDimeros;
+    
 
     public TextProcessor(String texto) {
         this.texto = texto;
         getProcessedText();
         dimeros=new ArrayList();
-        frecuenciaDimeros=new ArrayList();
+        listadoDimeros=new ArrayList();
         getDimeros();
     }
     public String getTexto() {
@@ -59,26 +60,27 @@ public class TextProcessor {
             dimeros.add(textoFormateado.substring(i,i+2));
         }
         
-        setFrecuenciaDimeros();
+        setListadoDimeros();
     }
     
-    private void setFrecuenciaDimeros(){
+    private void setListadoDimeros(){
         Dimero dimero;
         for(String dimeroEvaluar:dimeros){
-            if(frecuenciaDimeros.isEmpty()){
+            if(listadoDimeros.isEmpty()){
                 dimero=new Dimero();
                 dimero.setCantidad(1);
+                
                 dimero.setDimero(dimeroEvaluar);
-                frecuenciaDimeros.add(dimero);
+                listadoDimeros.add(dimero);
                 continue;
             }
             
             // busca el dimero en las frecuencias
             int i=0;
             boolean encontrado=false;
-            for(Dimero dimeroBuscar:frecuenciaDimeros){
+            for(Dimero dimeroBuscar:listadoDimeros){
                 if(dimeroBuscar.getDimero().equals(dimeroEvaluar)){
-                    frecuenciaDimeros.get(i).setCantidad(dimeroBuscar.getCantidad()+1);
+                    listadoDimeros.get(i).setCantidad(dimeroBuscar.getCantidad()+1);
                     encontrado=true;
                     break;
                 }
@@ -88,14 +90,31 @@ public class TextProcessor {
                 dimero=new Dimero();
                 dimero.setCantidad(1);
                 dimero.setDimero(dimeroEvaluar);
-                frecuenciaDimeros.add(dimero);
+                listadoDimeros.add(dimero);
             }
+            
+        }
+        // busca las distancias entre cada dimero
+        int[] posiciones;
+        int[] distancias;
+        int distancia;
+        int indiceInicio=0;
+        String cadenaDimero;
+        for(Dimero dimeroBuscar:listadoDimeros){
+            distancias=new int[dimeroBuscar.getCantidad()];
+            distancias=new int[dimeroBuscar.getCantidad()-1];
+            
+            cadenaDimero=dimeroBuscar.getDimero();
+                    
+            
         }
     }
     
-    public ArrayList<Dimero> getFrecuenciaDimeros(){
-        return frecuenciaDimeros;
+    public ArrayList<Dimero> getEstadisticasDimeros(){
+        return listadoDimeros;
     }
+    
+    
     
     public int getLongitud(){
         return textoFormateado.length();

@@ -35,7 +35,7 @@ public class Geneminning {
       }
       textoGuardar=textoGuardar.substring(0, textoGuardar.length()-2);
       textoGuardar+="\nFrecuencia de los dimeros:\n";
-      for(Dimero dimero:tp.getFrecuenciaDimeros()){
+      for(Dimero dimero:tp.getEstadisticasDimeros()){
           textoGuardar+=dimero.getDimero() + "\t" + dimero.getCantidad() + ",\n";
       }
       textoGuardar=textoGuardar.substring(0, textoGuardar.length()-2);
