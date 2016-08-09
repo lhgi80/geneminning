@@ -12,17 +12,28 @@ import geneminning.BD.ProyectosGen;
 import mx.edu.uaeh.files.FileLoader;
 import mx.edu.uaeh.files.TextProcessor;
 import java.util.ArrayList;
+import java.util.Calendar;
 /**
  *
  * @author Luis
  */
 public class leerSecuenciasGuardarBD {
     public static void main(String...args){
-        FileLoader fl=new FileLoader("","secuencias.txt");
+        
+        int hora,minutos;
+        Calendar calendario=Calendar.getInstance();
+        hora=calendario.get(Calendar.HOUR);
+        minutos=calendario.get(Calendar.MINUTE);
+        System.out.println("Iniciando:"+ hora + ":" + minutos);
+        FileLoader fl=new FileLoader("","zikamin.txt");
         String cadena=fl.getText();
         String[] cadenas=cadena.split(">gi");
         int i=0;
         Conexion con= new Conexion("mysql", "localhost", "gemjava", "root", "");
+        
+        hora=calendario.get(Calendar.HOUR);
+        minutos=calendario.get(Calendar.MINUTE);
+        System.out.println("procesando cadenas leidas:"+ hora + ":" + minutos);
         
         for(String paso:cadenas){
             if(paso.length()==0){
@@ -43,6 +54,7 @@ public class leerSecuenciasGuardarBD {
                 TextProcessor tp=new TextProcessor();
                 tp.setTextoFormateado(secuencia);
                 tp.ProcesaTextoFormateado();
+                
                 ArrayList<Dimero> dimeros=tp.getDimerosEstadistica();
 
                 Gen gen=new Gen();
@@ -81,7 +93,7 @@ public class leerSecuenciasGuardarBD {
                 gen.setFrecuenciaDurezaFuerte(frecuenciaDurezaFuerteGen);
                 
                 ProyectoGen proyectoGen=new ProyectoGen();
-                proyectoGen.setIdProyecto(1);// petroleo
+                proyectoGen.setIdProyecto(2);// petroleo
                 proyectoGen.setGen(gen);
                 
                 ProyectosGen pg=new ProyectosGen();
@@ -89,6 +101,11 @@ public class leerSecuenciasGuardarBD {
             }catch(Exception e){
                 i=0;
             }
+            
+            
+            hora=calendario.get(Calendar.HOUR);
+            minutos=calendario.get(Calendar.MINUTE);
+            System.out.println("cadena leida:"+ hora + ":" + minutos);
         }
     }
 }

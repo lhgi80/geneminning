@@ -181,7 +181,7 @@ public class TextProcessor {
         int posicionAnterior;
         Object[] arrPosiciones;
         
-        for(int i=0;i<15;i++){
+        for(int i=0;i<16;i++){
             // Dureza y Lisura
             for(int j=4;j<=7;j++){
                 estadisticas[i][j]*=estadisticas[i][0];

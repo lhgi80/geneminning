@@ -42,9 +42,12 @@ public class FileLoader {
          // Lectura del fichero
          
          String linea;
+         //char[] textoCaracter = null;
+         //int salida=br.read(textoCaracter);
+         
          while((linea=br.readLine())!=null){
           textoArchivo+=linea + "\n";
-        }
+         }
          
       }
       catch(Exception e){
