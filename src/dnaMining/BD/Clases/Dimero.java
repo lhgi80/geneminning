@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package geneminning.BD.Clases;
+package dnaMining.BD.Clases;
 
 /**
  *
@@ -10,12 +10,12 @@ package geneminning.BD.Clases;
  */
 public class Dimero extends Estadistica{
     private long idDimero;
-    private long idGen;
+    private long idSecuencia;
     private String nombreDimero;
     
     public Dimero() {
         super();
-        idGen=0;
+        idSecuencia=0;
         idDimero=0;
         nombreDimero="";
     }
@@ -36,12 +36,11 @@ public class Dimero extends Estadistica{
         this.nombreDimero = nombreDimero;
     }    
 
-    public long getIdGen() {
-        return idGen;
+    public long getIdSecuencia() {
+        return idSecuencia;
     }
 
-    public void setIdGen(long idGen) {
-        this.idGen = idGen;
+    public void setIdSecuencia(long idSecuencia) {
+        this.idSecuencia = idSecuencia;
     }
-    
 }

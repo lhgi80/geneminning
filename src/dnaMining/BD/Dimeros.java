@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package geneminning.BD;
+package dnaMining.BD;
 
 import BD.Conexion;
-import geneminning.BD.Clases.Dimero;
+import dnaMining.BD.Clases.Dimero;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,24 +21,24 @@ import java.util.ArrayList;
  */
 public class Dimeros {
     private Dimero dimero;
-    private long idGen;
+    private long idSecuencia;
     private long idDimero;
     private Connection conexion;
 
     public Dimeros() {
         this.dimero = new Dimero();
-        this.idGen = 0;
+        this.idSecuencia = 0;
         this.idDimero = 0;
         conexion=Conexion.getConexion();
     }
 
     
-    public long getIdGen() {
-        return idGen;
+    public long getIdSecuencia() {
+        return idSecuencia;
     }
 
-    public void setIdGen(long idGen) {
-        this.idGen = idGen;
+    public void setIdSecuencia(long idSecuencia) {
+        this.idSecuencia = idSecuencia;
     }
 
     public long getIdDimero() {
@@ -66,11 +66,11 @@ public class Dimeros {
             salida+="idDimero=" + idDimero;
         }
         
-        if(idGen!=0){
+        if(idSecuencia!=0){
             if(salida.length()>0){
                 salida+=" AND ";
             }
-            salida+="idGen=" + idGen;
+            salida+="idSecuencia=" + idSecuencia;
         }
         if(salida.length()>0){
             salida=" WHERE " + salida;
@@ -81,7 +81,7 @@ public class Dimeros {
         ArrayList<Dimero> dimeros=new ArrayList();
         
         String query="SELECT\n" +
-        "idGen,\n" +
+        "idSecuencia,\n" +
         "idDimero,\n" +
         "nombreDimero,\n" +
         "frecuencia,\n" +
@@ -101,9 +101,9 @@ public class Dimeros {
             st = conexion.createStatement();
             ResultSet rs=st.executeQuery(query);
             while(rs.next()){
-                Dimero dimero=new Dimero();
+                dimero=new Dimero();
                 dimero.setIdDimero(rs.getInt("idDimero"));
-                dimero.setIdGen(rs.getInt("idGen"));
+                dimero.setIdSecuencia(rs.getInt("idSecuencia"));
                 dimero.setNombreDimero(rs.getString("nombreDimero"));
                 dimero.setFrecuencia(rs.getDouble("frecuencia"));
                 dimero.setDistanciaMinima(rs.getDouble("distanciaMinima"));
@@ -127,7 +127,7 @@ public class Dimeros {
         boolean salida=true;
         try {
             CallableStatement cst = conexion.prepareCall("{call dimero_EstadisticaAgregar (?,?,?,?,?,?,?,?,?,?,?,?)}");
-            cst.setLong(1,dimero.getIdGen());
+            cst.setLong(1,dimero.getIdSecuencia());
             cst.setString(2,dimero.getNombreDimero());
             cst.setDouble(3,dimero.getFrecuencia());
             cst.setDouble(4,dimero.getDistanciaMinima());

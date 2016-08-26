@@ -1,6 +1,7 @@
 package test;
 
-import mx.edu.uaeh.files.XMLParser;
+import BD.Conexion;
+import dnaMining.FileProcessing.XMLParser;
 
 /**
  *
@@ -8,7 +9,9 @@ import mx.edu.uaeh.files.XMLParser;
  */
 public class ArchivoXML {
     public static void main(String... args){
+        Conexion con= new Conexion("mysql", "localhost", "dnaseq", "root", "");
         XMLParser xmlLoader=new XMLParser("secuencia.xml");
+        
         xmlLoader.loadFile();
     }
 }

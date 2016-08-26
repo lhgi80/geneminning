@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.edu.uaeh.files;
+package dnaMining.FileProcessing;
 
-import geneminning.BD.Clases.Dimero;
+import dnaMining.BD.Clases.Dimero;
 import java.util.ArrayList;
 
 /**
@@ -140,6 +140,10 @@ public class TextProcessor {
         losDimeros.add("GC");
         losDimeros.add("GG");
     }
+    
+    /***
+     * Genera el proceso de obtener los dimeros y sus estadisticas
+     */
     public void ProcesaTextoFormateado(){
         inicializaEstadisticas();
         ArrayList[] posiciones=new ArrayList[16];

@@ -5,8 +5,8 @@
 package test;
 
 import BD.Conexion;
-import geneminning.BD.Clases.Dimero;
-import geneminning.BD.Dimeros;
+import dnaMining.BD.Clases.Dimero;
+import dnaMining.BD.Dimeros;
 import java.util.ArrayList;
 /**
  *

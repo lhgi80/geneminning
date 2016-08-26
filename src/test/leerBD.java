@@ -5,10 +5,10 @@
 package test;
 
 import BD.Conexion;
-import geneminning.BD.Clases.Gen;
-import geneminning.BD.Clases.ProyectoGen;
-import geneminning.BD.Genes;
-import geneminning.BD.ProyectosGen;
+import dnaMining.BD.Clases.Secuencia;
+import dnaMining.BD.Clases.ProyectoSecuencia;
+import dnaMining.BD.Secuencias;
+import dnaMining.BD.ProyectosSecuencia;
 import java.util.ArrayList;
 /**
  *
@@ -17,9 +17,9 @@ import java.util.ArrayList;
 public class leerBD {
     public static void main(String... args){
         Conexion con= new Conexion("mysql", "localhost", "genemini_datos", "root", "");
-        ProyectosGen pg = new ProyectosGen();
+        ProyectosSecuencia pg = new ProyectosSecuencia();
         pg.setIdProyecto(1);
-        ArrayList<ProyectoGen> py=pg.getDatos();
+        ArrayList<ProyectoSecuencia> py=pg.getDatos();
         
     }
 }

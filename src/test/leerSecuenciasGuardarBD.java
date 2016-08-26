@@ -5,12 +5,12 @@
 package test;
 
 import BD.Conexion;
-import geneminning.BD.Clases.Dimero;
-import geneminning.BD.Clases.Gen;
-import geneminning.BD.Clases.ProyectoGen;
-import geneminning.BD.ProyectosGen;
-import mx.edu.uaeh.files.FileLoader;
-import mx.edu.uaeh.files.TextProcessor;
+import dnaMining.BD.Clases.Dimero;
+import dnaMining.BD.Clases.Secuencia;
+import dnaMining.BD.Clases.ProyectoSecuencia;
+import dnaMining.BD.ProyectosSecuencia;
+import dnaMining.FileProcessing.FileLoader;
+import dnaMining.FileProcessing.TextProcessor;
 import java.util.ArrayList;
 import java.util.Calendar;
 /**
@@ -57,12 +57,11 @@ public class leerSecuenciasGuardarBD {
                 
                 ArrayList<Dimero> dimeros=tp.getDimerosEstadistica();
 
-                Gen gen=new Gen();
-                gen.setFolio(folio);
-                gen.setCadena(secuencia);
-                gen.setNombreGen(nombre);
-                gen.setIdTipoGen(3); // nucleotido
-                gen.setDimeros(dimeros);
+                Secuencia sec=new Secuencia();
+                sec.setFolio(folio);
+                sec.setSecuencia(secuencia);
+                sec.setNombre(nombre);
+                sec.setDimeros(dimeros);
 
                 double frecuenciaGen=0;
                 double distanciaMinimaGen=0;
@@ -83,21 +82,21 @@ public class leerSecuenciasGuardarBD {
                     frecuenciaDurezaDebilGen+=dimero.getFrecuenciaDurezaDebil();
                     frecuenciaDurezaFuerteGen+=dimero.getFrecuenciaDurezaFuerte();
                 }
-                gen.setFrecuencia(frecuenciaGen);
-                gen.setDistanciaMinima(distanciaMinimaGen/dimeros.size());
-                gen.setDistanciaMaxima(distanciaMaximaGen/dimeros.size());
-                gen.setDistanciaPromedio(distanciaPromedioGen/dimeros.size());
-                gen.setFrecuenciaPurinas(frecuenciaPurinasGen);
-                gen.setFrecuenciaPirimidinas(frecuenciaPirimidinasGen);
-                gen.setFrecuenciaDurezaDebil(frecuenciaDurezaDebilGen);
-                gen.setFrecuenciaDurezaFuerte(frecuenciaDurezaFuerteGen);
+                sec.setFrecuencia(frecuenciaGen);
+                sec.setDistanciaMinima(distanciaMinimaGen/dimeros.size());
+                sec.setDistanciaMaxima(distanciaMaximaGen/dimeros.size());
+                sec.setDistanciaPromedio(distanciaPromedioGen/dimeros.size());
+                sec.setFrecuenciaPurinas(frecuenciaPurinasGen);
+                sec.setFrecuenciaPirimidinas(frecuenciaPirimidinasGen);
+                sec.setFrecuenciaDurezaDebil(frecuenciaDurezaDebilGen);
+                sec.setFrecuenciaDurezaFuerte(frecuenciaDurezaFuerteGen);
                 
-                ProyectoGen proyectoGen=new ProyectoGen();
-                proyectoGen.setIdProyecto(2);// petroleo
-                proyectoGen.setGen(gen);
+                ProyectoSecuencia proyectoSecuencia=new ProyectoSecuencia();
+                proyectoSecuencia.setIdProyecto(2);// petroleo
+                proyectoSecuencia.setSecuencia(sec);
                 
-                ProyectosGen pg=new ProyectosGen();
-                pg.proyectoGenAgregar(proyectoGen);
+                ProyectosSecuencia pg=new ProyectosSecuencia();
+                pg.proyectoSecuenciaAgregar(proyectoSecuencia);
             }catch(Exception e){
                 i=0;
             }

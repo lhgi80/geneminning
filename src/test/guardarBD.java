@@ -5,12 +5,12 @@
 package test;
 
 import BD.Conexion;
-import geneminning.BD.Clases.Dimero;
-import geneminning.BD.Clases.Gen;
-import geneminning.BD.Clases.ProyectoGen;
-import geneminning.BD.Dimeros;
-import geneminning.BD.Genes;
-import geneminning.BD.ProyectosGen;
+import dnaMining.BD.Clases.Dimero;
+import dnaMining.BD.Clases.Secuencia;
+import dnaMining.BD.Clases.ProyectoSecuencia;
+import dnaMining.BD.Dimeros;
+import dnaMining.BD.Secuencias;
+import dnaMining.BD.ProyectosSecuencia;
 import java.util.ArrayList;
 /**
  *
@@ -21,23 +21,22 @@ public class guardarBD {
         Conexion con= new Conexion("mysql", "localhost", "gemjava", "root", "");
         
         //Genes g new Genes();
-        Genes g=new Genes();
-        Gen gen=new Gen();
-        gen.setNombreGen("PRUEBA DE GEN");
-        gen.setFolio("FOLIO 1");
-        gen.setCadena("AAAATTTTCCCCCGGG");
-        gen.setIdTipoGen(3);
-        gen.setFrecuencia(1);
-        gen.setDistanciaMinima(1);
-        gen.setDistanciaMaxima(100);
-        gen.setDistanciaPromedio(50);
-        gen.setFrecuenciaPurinas(1);
-        gen.setFrecuenciaPirimidinas(1);
-        gen.setFrecuenciaDurezaDebil(1);
-        gen.setFrecuenciaDurezaFuerte(1);
+        Secuencias g=new Secuencias();
+        Secuencia secuencia=new Secuencia();
+        secuencia.setNombre("PRUEBA DE GEN");
+        secuencia.setFolio("FOLIO 1");
+        secuencia.setSecuencia("AAAATTTTCCCCCGGG");
+        secuencia.setFrecuencia(1);
+        secuencia.setDistanciaMinima(1);
+        secuencia.setDistanciaMaxima(100);
+        secuencia.setDistanciaPromedio(50);
+        secuencia.setFrecuenciaPurinas(1);
+        secuencia.setFrecuenciaPirimidinas(1);
+        secuencia.setFrecuenciaDurezaDebil(1);
+        secuencia.setFrecuenciaDurezaFuerte(1);
         
         Dimero dimero=new Dimero();
-        dimero.setIdGen(1);
+        dimero.setIdSecuencia(1);
         dimero.setNombreDimero("AA");
         dimero.setFrecuencia(100);
         dimero.setDistanciaMinima(2);
@@ -51,13 +50,13 @@ public class guardarBD {
         ArrayList<Dimero>dimeros=new ArrayList();
         dimeros.add(dimero);
         
-        gen.setDimeros(dimeros);
-        ProyectoGen pg=new ProyectoGen();
+        secuencia.setDimeros(dimeros);
+        ProyectoSecuencia pg=new ProyectoSecuencia();
         pg.setIdProyecto(1); // petroleo
-        pg.setGen(gen);
+        pg.setSecuencia(secuencia);
         
-        ProyectosGen pgen=new ProyectosGen();
-        pgen.proyectoGenAgregar(pg);
+        ProyectosSecuencia pgen=new ProyectosSecuencia();
+        pgen.proyectoSecuenciaAgregar(pg);
 
 //        
 //        d.dimeroAgregar(dimero);

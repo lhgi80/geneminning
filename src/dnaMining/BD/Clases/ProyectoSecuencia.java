@@ -2,21 +2,20 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package geneminning.BD.Clases;
+package dnaMining.BD.Clases;
 
 /**
  *
  * @author Luis
  */
-public class ProyectoGen {
+public class ProyectoSecuencia {
     private int idProyecto;
     private String nombreProyecto;
-    private int idGen;
+    private int idSecuencia;
     private String folio;
-    private int idTipoGen;
-    private Gen gen;
+    private Secuencia secuencia;
 
-    public ProyectoGen() {
+    public ProyectoSecuencia() {
         
     }
     public int getIdProyecto() {
@@ -35,12 +34,12 @@ public class ProyectoGen {
         this.nombreProyecto = nombreProyecto;
     }
 
-    public int getIdGen() {
-        return idGen;
+    public int getIdSecuencia() {
+        return idSecuencia;
     }
 
-    public void setIdGen(int idGen) {
-        this.idGen = idGen;
+    public void setIdSecuencia(int idSecuencia) {
+        this.idSecuencia = idSecuencia;
     }
 
     public String getFolio() {
@@ -51,19 +50,11 @@ public class ProyectoGen {
         this.folio = folio;
     }
 
-    public int getIdTipoGen() {
-        return idTipoGen;
+    public Secuencia getSecuencia() {
+        return secuencia;
     }
 
-    public void setIdTipoGen(int idTipoGen) {
-        this.idTipoGen = idTipoGen;
-    }
-
-    public Gen getGen() {
-        return gen;
-    }
-
-    public void setGen(Gen gen) {
-        this.gen = gen;
+    public void setSecuencia(Secuencia secuencia) {
+        this.secuencia = secuencia;
     }
 }

@@ -4,9 +4,9 @@
  */
 package test;
 
-import geneminning.BD.Clases.Dimero;
-import mx.edu.uaeh.files.FileLoader;
-import mx.edu.uaeh.files.TextProcessor;
+import dnaMining.BD.Clases.Dimero;
+import dnaMining.FileProcessing.FileLoader;
+import dnaMining.FileProcessing.TextProcessor;
 
 /**
  *
