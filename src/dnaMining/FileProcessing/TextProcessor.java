@@ -222,7 +222,11 @@ public class TextProcessor {
             dimeroAgregar.setFrecuencia(estadisticas[i][0]);
             dimeroAgregar.setDistanciaMinima(estadisticas[i][1]);
             dimeroAgregar.setDistanciaMaxima(estadisticas[i][2]);
-            dimeroAgregar.setDistanciaPromedio(estadisticas[i][3]/(estadisticas[i][0]-1));
+            int divisor=1;
+            if(estadisticas[i][0]>1){
+                divisor=estadisticas[i][0]-1;
+            }
+            dimeroAgregar.setDistanciaPromedio(estadisticas[i][3]/(divisor));
             dimeroAgregar.setFrecuenciaPurinas(estadisticas[i][4]);
             dimeroAgregar.setFrecuenciaPirimidinas(estadisticas[i][5]);
             dimeroAgregar.setFrecuenciaDurezaFuerte(estadisticas[i][6]);
